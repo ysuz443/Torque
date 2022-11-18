@@ -1,0 +1,23 @@
+version: 2.1
+
+# このプロジェクトで実行するジョブの定義
+jobs:
+  build:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      - checkout
+      - run: echo "this is the build job"
+  test:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      - checkout
+      - run: echo "this is the test job"
+
+# ジョブの実行順の指定
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test

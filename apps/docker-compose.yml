@@ -1,0 +1,5 @@
+services:
+  api:
+    build: ./api
+    hostname: api
+    init: true
